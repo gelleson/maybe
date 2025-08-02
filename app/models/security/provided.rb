@@ -5,7 +5,9 @@ module Security::Provided
 
   class_methods do
     def provider
-      # No securities provider configured
+      registry = Provider::Registry.for_concept(:securities)
+      registry.get_provider(:alpha_vantage)
+    rescue Provider::Registry::Error
       nil
     end
 

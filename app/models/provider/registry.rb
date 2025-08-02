@@ -73,6 +73,11 @@ class Provider::Registry
 
         Provider::Openai.new(access_token)
       end
+
+      def alpha_vantage
+        api_key = ENV["ALPHA_VANTAGE_API_KEY"]
+        Provider::AlphaVantage.new(api_key)
+      end
   end
 
   def initialize(concept)
@@ -100,7 +105,7 @@ class Provider::Registry
       when :exchange_rates
         %i[frankfurter exchangerate_api fawaz_currency_api]
       when :securities
-        %i[]
+        %i[alpha_vantage]
       when :llm
         %i[openai]
       else

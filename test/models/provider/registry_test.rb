@@ -21,10 +21,18 @@ class Provider::RegistryTest < ActiveSupport::TestCase
     assert_includes provider_classes, Provider::Frankfurter
   end
 
-  test "securities providers not configured" do
+  test "alpha vantage provider available" do
+    provider = Provider::Registry.get_provider(:alpha_vantage)
+    assert_instance_of Provider::AlphaVantage, provider
+  end
+
+  test "securities providers configured" do
     registry = Provider::Registry.for_concept(:securities)
     providers = registry.providers.compact
-    assert_empty providers, "Securities providers should be empty"
+    assert providers.any?, "Should have at least one securities provider"
+
+    provider_classes = providers.map(&:class)
+    assert_includes provider_classes, Provider::AlphaVantage
   end
 
   test "synth provider not available" do
