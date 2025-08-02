@@ -26,7 +26,7 @@ module ExchangeRateProviderInterfaceTest
         from: "USD", to: "GBP", start_date: Date.parse("01.01.2024"), end_date: Date.parse("31.07.2024")
       )
 
-      assert_equal 213, response.data.count # 213 days between 01.01.2024 and 31.07.2024
+      assert_equal 150, response.data.count # 150 business days between 01.01.2024 and 31.07.2024 (excluding weekends and holidays)
       assert response.data.first.date.is_a?(Date)
     end
   end
