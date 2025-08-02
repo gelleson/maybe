@@ -1,0 +1,51 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.frankfurter.app/latest
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - maybe_app
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sat, 02 Aug 2025 09:46:13 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Nel:
+      - '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}'
+      Cache-Control:
+      - public, max-age=900
+      Report-To:
+      - '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=Wiq111GeRgbSRsCXVGkbVxwq7NeJn5l2l6O60YrEkrixx%2F4giLUpCPdZEXbSGBX8wAInHlmXRbPp8%2B3JbHElk%2FvvgXED0uxrdBcoLweslzMi7X4%3D"}]}'
+      Vary:
+      - Origin, accept-encoding
+      Cf-Cache-Status:
+      - REVALIDATED
+      Etag:
+      - W/"e4430dd61cdac031b5b3335ad6032259"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 968ca597fdb8a61e-ARN
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"amount":1.0,"base":"EUR","date":"2025-08-01","rates":{"AUD":1.7756,"BGN":1.9558,"BRL":6.4129,"CAD":1.5822,"CHF":0.9312,"CNY":8.2243,"CZK":24.588,"DKK":7.4629,"GBP":0.8665,"HKD":8.9521,"HUF":400.15,"IDR":18839,"ILS":3.9053,"INR":99.79,"ISK":143.0,"JPY":171.61,"KRW":1601.83,"MXN":21.616,"MYR":4.8781,"NOK":11.8128,"NZD":1.9456,"PHP":66.317,"PLN":4.2755,"RON":5.075,"SEK":11.1965,"SGD":1.4811,"THB":37.462,"TRY":46.378,"USD":1.1404,"ZAR":20.896}}'
+  recorded_at: Sat, 02 Aug 2025 09:46:13 GMT
+recorded_with: VCR 6.3.1

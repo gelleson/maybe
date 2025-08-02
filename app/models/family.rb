@@ -85,7 +85,9 @@ class Family < ApplicationRecord
   end
 
   def missing_data_provider?
-    requires_data_provider? && Provider::Registry.get_provider(:synth).nil?
+    # Only show warning if family has trades (needs securities data)
+    # Exchange rates are supported via Fawaz Currency API
+    trades.any? && Security.provider.nil?
   end
 
   def oldest_entry_date

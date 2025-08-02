@@ -32,12 +32,18 @@ class Provider::Registry
         Provider::Stripe.new(secret_key:, webhook_secret:)
       end
 
-      def synth
-        api_key = ENV.fetch("SYNTH_API_KEY", Setting.synth_api_key)
 
-        return nil unless api_key.present?
+      def frankfurter
+        Provider::Frankfurter.new
+      end
 
-        Provider::Synth.new(api_key)
+      def exchangerate_api
+        api_key = ENV["EXCHANGERATE_API_KEY"] # Optional for free tier
+        Provider::ExchangerateApi.new(api_key)
+      end
+
+      def fawaz_currency_api
+        Provider::FawazCurrencyApi.new
       end
 
       def plaid_us
@@ -92,13 +98,13 @@ class Provider::Registry
     def available_providers
       case concept
       when :exchange_rates
-        %i[synth]
+        %i[frankfurter exchangerate_api fawaz_currency_api]
       when :securities
-        %i[synth]
+        %i[]
       when :llm
         %i[openai]
       else
-        %i[synth plaid_us plaid_eu github openai]
+        %i[plaid_us plaid_eu github openai frankfurter]
       end
     end
 end

@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.frankfurter.app/2024-01-01?from=USD&to=GBP
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - maybe_app
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sat, 02 Aug 2025 09:46:13 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Nel:
+      - '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}'
+      Cache-Control:
+      - public, max-age=900
+      Report-To:
+      - '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=UG4Pqiyxykx84sbw8%2FW3GHpMOAau5%2B3hW5Kfn5WE3vaFinl%2FV6Av1DwEmQA5Upltc8EnsSPiFy5xcHLh3L5spKYhkZNGzBBMa4oKzdEntaV%2FwYCaS209w%2F88yleKs8Y%3D"}]}'
+      Vary:
+      - Origin, accept-encoding
+      Age:
+      - '142'
+      Cf-Cache-Status:
+      - HIT
+      Etag:
+      - W/"636e3f48226af7550b8135de12cd2a1b"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 968ca59d0ed0a9d3-ARN
+      Alt-Svc:
+      - h3=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"amount":1.0,"base":"USD","date":"2023-12-29","rates":{"GBP":0.78647}}'
+  recorded_at: Sat, 02 Aug 2025 09:46:13 GMT
+recorded_with: VCR 6.3.1
