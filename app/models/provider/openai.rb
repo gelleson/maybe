@@ -4,10 +4,13 @@ class Provider::Openai < Provider
   # Subclass so errors caught in this provider are raised as Provider::Openai::Error
   Error = Class.new(Provider::Error)
 
-  MODELS = %w[gpt-4.1]
+  MODELS = %w[openapi/gpt-4.1]
 
   def initialize(access_token)
-    @client = ::OpenAI::Client.new(access_token: access_token)
+    @client = ::OpenAI::Client.new(
+      access_token: access_token,
+      uri_base: "https://openrouter.ai/api/v1"
+    )
   end
 
   def supports_model?(model)
