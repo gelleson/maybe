@@ -15,9 +15,7 @@ class Provider::FrankfurterTest < ActiveSupport::TestCase
   end
 
   test "usage info" do
-    response = @frankfurter.usage
-    assert response.success?
-    usage = response.data
+    usage = @frankfurter.usage
     assert_equal 0, usage.used
     assert_equal Float::INFINITY, usage.limit
     assert_equal 0.0, usage.utilization

@@ -18,8 +18,12 @@ class Account::MarketDataImporterTest < ActiveSupport::TestCase
     @provider = mock("provider")
     Provider::Registry.any_instance
                       .stubs(:get_provider)
-                      .with(:synth)
+                      .with(:fawaz_currency_api)
                       .returns(@provider)
+    Provider::Registry.any_instance
+                      .stubs(:get_provider)
+                      .with(:synth)
+                      .returns(nil)
   end
 
   test "syncs required exchange rates for a foreign-currency account" do
